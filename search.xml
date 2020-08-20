@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Servlet规范</title>
-    <url>/2020/08/20/Servlet%E8%A7%84%E8%8C%83%E4%B8%8E%E5%AE%B9%E5%99%A8/</url>
-    <content><![CDATA[<h2 id="Servlet规范"><a href="#Servlet规范" class="headerlink" title="Servlet规范"></a>Servlet规范</h2><p>浏览器发给服务器一个http请求，服务器调用服务端程序处理，不同的请求由不同的JAVA类来处理。如果在服务器代码里使用大量ifelse判断，会将业务逻辑和服务器代码耦合到一起。由此servlet接口诞生，各种业务类必须实现这个接口。</p>
-<p><strong>Servlet容器用来加载和管理业务类，http服务器不直接和业务类接触，它将请求交给Servelt容器处理，容器将请求转发给具体的Servlet类，若这个Servlet还没创建则加载并实例化，然后调用接口方法。</strong></p>
-<a id="more"></a>
-
-<p> Servlet 接口和 Servlet 容器这一整套规范叫作 <strong>Servlet 规范</strong>，Tamcat和Jetty都按照Servlet规范实现了Servlet容器。</p>
-<h2 id="Servlet接口"><a href="#Servlet接口" class="headerlink" title="Servlet接口"></a>Servlet接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException</span>;</span><br><span class="line"></span><br><span class="line"> <span class="function">ServletConfig <span class="title">getServletConfig</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res）<span class="keyword">throws</span> ServletException, IOExc</span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"> String getServletInfo()</span></span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>service接口实现业务逻辑，ServletRequest封装请求信息。Tamcat中HTTPServletRequest继承ServletRequest，Tamcat中对service接口的实现主要调用doGet和doPost方法。</p>
-<p>Servlet容器在加载Servlet类时调用init，在卸载时调用destroy方法。</p>
-<p>通过继承 HttpServlet 类来实现自己的 Servlet，只需要重写两个方法：doGet 和 doPost。</p>
-<h2 id="Servlet容器工作流程"><a href="#Servlet容器工作流程" class="headerlink" title="Servlet容器工作流程"></a>Servlet容器工作流程</h2><p>客户机传递http请求给服务器，服务器转给Servlet容器。根据请求的URL和Servlet映射关系找到Servlet类，调用Init()初始化, service()处理请求。</p>
-<h2 id="Servlet部分接口说明"><a href="#Servlet部分接口说明" class="headerlink" title="Servlet部分接口说明"></a>Servlet部分接口说明</h2><p><strong>ServletConfig</strong> 的作用就是封装 Servlet 的初始化参数。你可以在 web.xml 给 Servlet 配置参数，并在程序里通过 getServletConfig 方法拿到这些参数。</p>
-<p><strong>ServletContext</strong>对应一个 Web 应用。Web 应用部署好后，Servlet 容器在启动时会加载 Web 应用，并为每个Web 应用创建唯一的 ServletContext 对象。你可以把 ServletContext 看成是一个全局对象，一个 Web 应用可能有多个 Servlet，这些 Servlet 可以通过全局的ServletContext 来共享数据，这些数据包括 Web 应用的初始化参数、Web 应用目录下的文件资源等。由于 ServletContext 持有所有 Servlet 实例，你还可以通过它来实现 Servlet 请求的转发。</p>
-<h2 id="Servlet规范扩展机制"><a href="#Servlet规范扩展机制" class="headerlink" title="Servlet规范扩展机制"></a>Servlet规范扩展机制</h2><h3 id="FIlter"><a href="#FIlter" class="headerlink" title="FIlter"></a>FIlter</h3><h3 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h3>]]></content>
-      <categories>
-        <category>Tamcat</category>
-      </categories>
-      <tags>
-        <tag>servlet接口</tag>
-        <tag>servlet容器</tag>
-        <tag>filter</tag>
-        <tag>listener</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>http协议</title>
     <url>/2020/08/19/http/</url>
     <content><![CDATA[<p>http本身就是一个“http服务器 + Servlet容器”<br>Tamcat和Jetty都是Servlet引擎（Web容器），主要完成接受连接，解析请求数据，处理请求，发送响应，多线程技术提升并发性</p>
@@ -131,6 +104,33 @@
       </categories>
       <tags>
         <tag>matlab向量运算 matlab基本运算 matlab简单命令 matlab常见特殊变量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Servlet规范</title>
+    <url>/2020/08/20/Servlet%E8%A7%84%E8%8C%83%E4%B8%8E%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="Servlet规范"><a href="#Servlet规范" class="headerlink" title="Servlet规范"></a>Servlet规范</h2><p>浏览器发给服务器一个http请求，服务器调用服务端程序处理，不同的请求由不同的JAVA类来处理。如果在服务器代码里使用大量ifelse判断，会将业务逻辑和服务器代码耦合到一起。由此servlet接口诞生，各种业务类必须实现这个接口。</p>
+<p><strong>Servlet容器用来加载和管理业务类，http服务器不直接和业务类接触，它将请求交给Servelt容器处理，容器将请求转发给具体的Servlet类，若这个Servlet还没创建则加载并实例化，然后调用接口方法。</strong></p>
+<a id="more"></a>
+
+<p> Servlet 接口和 Servlet 容器这一整套规范叫作 <strong>Servlet 规范</strong>，Tamcat和Jetty都按照Servlet规范实现了Servlet容器。</p>
+<h2 id="Servlet接口"><a href="#Servlet接口" class="headerlink" title="Servlet接口"></a>Servlet接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException</span>;</span><br><span class="line"></span><br><span class="line"> <span class="function">ServletConfig <span class="title">getServletConfig</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res）<span class="keyword">throws</span> ServletException, IOExc</span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"> String getServletInfo()</span></span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>service接口实现业务逻辑，ServletRequest封装请求信息。Tamcat中HTTPServletRequest继承ServletRequest，Tamcat中对service接口的实现主要调用doGet和doPost方法。</p>
+<p>Servlet容器在加载Servlet类时调用init，在卸载时调用destroy方法。</p>
+<p>通过继承 HttpServlet 类来实现自己的 Servlet，只需要重写两个方法：doGet 和 doPost。</p>
+<h2 id="Servlet容器工作流程"><a href="#Servlet容器工作流程" class="headerlink" title="Servlet容器工作流程"></a>Servlet容器工作流程</h2><p>客户机传递http请求给服务器，服务器转给Servlet容器。根据请求的URL和Servlet映射关系找到Servlet类，调用Init()初始化, service()处理请求。</p>
+<h2 id="Servlet部分接口说明"><a href="#Servlet部分接口说明" class="headerlink" title="Servlet部分接口说明"></a>Servlet部分接口说明</h2><p><strong>ServletConfig</strong> 的作用就是封装 Servlet 的初始化参数。你可以在 web.xml 给 Servlet 配置参数，并在程序里通过 getServletConfig 方法拿到这些参数。</p>
+<p><strong>ServletContext</strong>对应一个 Web 应用。Web 应用部署好后，Servlet 容器在启动时会加载 Web 应用，并为每个Web 应用创建唯一的 ServletContext 对象。你可以把 ServletContext 看成是一个全局对象，一个 Web 应用可能有多个 Servlet，这些 Servlet 可以通过全局的ServletContext 来共享数据，这些数据包括 Web 应用的初始化参数、Web 应用目录下的文件资源等。由于 ServletContext 持有所有 Servlet 实例，你还可以通过它来实现 Servlet 请求的转发。</p>
+<h2 id="Servlet规范扩展机制"><a href="#Servlet规范扩展机制" class="headerlink" title="Servlet规范扩展机制"></a>Servlet规范扩展机制</h2><h3 id="FIlter"><a href="#FIlter" class="headerlink" title="FIlter"></a>FIlter</h3><h3 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h3>]]></content>
+      <categories>
+        <category>Tamcat</category>
+      </categories>
+      <tags>
+        <tag>servlet接口</tag>
+        <tag>servlet容器</tag>
+        <tag>filter</tag>
+        <tag>listener</tag>
       </tags>
   </entry>
   <entry>
