@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>多文件编译</title>
-    <url>/2020/09/01/September1th/</url>
-    <content><![CDATA[<h1 id="找到一个或多个多重定义的文件"><a href="#找到一个或多个多重定义的文件" class="headerlink" title="找到一个或多个多重定义的文件"></a>找到一个或多个多重定义的文件</h1><p>在C++/C中，多文件编译不需要引入其他自己写的cpp文件，只需要声明，但是只能有一个main()方法。比如在A.cpp中使用b.cpp中的test()方法，只需要在A.cpp中声明test()方法,关键字extern可加可不加例如：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//A.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//B.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>C++/C</category>
-      </categories>
-      <tags>
-        <tag>c++/c</tag>
-        <tag>extern</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Servlet规范</title>
     <url>/2020/08/20/Servlet%E8%A7%84%E8%8C%83%E4%B8%8E%E5%AE%B9%E5%99%A8/</url>
     <content><![CDATA[<h2 id="Servlet规范"><a href="#Servlet规范" class="headerlink" title="Servlet规范"></a>Servlet规范</h2><p>浏览器发给服务器一个http请求，服务器调用服务端程序处理，不同的请求由不同的JAVA类来处理。如果在服务器代码里使用大量ifelse判断，会将业务逻辑和服务器代码耦合到一起。由此servlet接口诞生，各种业务类必须实现这个接口。</p>
@@ -64,6 +49,23 @@
         <tag>http</tag>
         <tag>Cookie</tag>
         <tag>Session</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多文件编译</title>
+    <url>/2020/09/01/September1th/</url>
+    <content><![CDATA[<h1 id="找到一个或多个多重定义的文件"><a href="#找到一个或多个多重定义的文件" class="headerlink" title="找到一个或多个多重定义的文件"></a>找到一个或多个多重定义的文件</h1><p>在C++/C中，多文件编译不需要引入其他自己写的cpp文件，只需要声明，但是只能有一个main()方法。比如在A.cpp中使用b.cpp中的test()方法，只需要在A.cpp中声明test()方法,关键字extern可加可不加例如：</p>
+<a id="more"></a>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//A.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//B.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++/C</category>
+      </categories>
+      <tags>
+        <tag>c++/c</tag>
+        <tag>extern</tag>
       </tags>
   </entry>
   <entry>
@@ -231,6 +233,51 @@
       </categories>
       <tags>
         <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UML类图常见关系</title>
+    <url>/2020/10/22/%E7%B1%BB%E5%9B%BE/</url>
+    <content><![CDATA[<h1 id="UML类图常见关系"><a href="#UML类图常见关系" class="headerlink" title="UML类图常见关系:"></a>UML类图常见关系:</h1><h4 id="泛化"><a href="#泛化" class="headerlink" title="泛化"></a>泛化</h4><p>带三角箭头的实线，箭头指向父类</p>
+<a id="more"></a>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>带三角箭头的虚线，箭头指向接口</p>
+<h4 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h4><p>带普通箭头的实心线，指向被拥有者</p>
+<h5 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h5><p>带空心菱形的实心线，菱形指向整体</p>
+<h5 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h5><p>带实心菱形的实心线，菱形指向整体</p>
+<h4 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h4><p>带箭头的虚线，指向被使用者</p>
+<h4 id="疑难解惑"><a href="#疑难解惑" class="headerlink" title="疑难解惑"></a>疑难解惑</h4><h5 id="依赖-1"><a href="#依赖-1" class="headerlink" title="依赖"></a>依赖</h5><p>筷子被使用，人是使用者，筷子是被使用者<br>所以箭头指向筷子</p>
+<h5 id="组合与聚合是关联的特例"><a href="#组合与聚合是关联的特例" class="headerlink" title="组合与聚合是关联的特例"></a>组合与聚合是关联的特例</h5><p>组合是部分与整体共存，如果整体不存在，部分也会消失。<br>聚合关系是整体与部分的关系，且部分可以离开整体而单独存在。<br>手被人拥有，被拥有者为人，不可分割，为组合关系，实心菱形指向人。</p>
+]]></content>
+      <categories>
+        <category>软件设计</category>
+      </categories>
+      <tags>
+        <tag>UML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>反射</title>
+    <url>/2020/10/22/%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>分析类能力的程序称为反射</p>
+<a id="more"></a>
+
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>java为每个类型管理一个Class对象,可以用==比较</p>
+<h3 id="获得Class对象"><a href="#获得Class对象" class="headerlink" title="获得Class对象"></a>获得Class对象</h3><p>1 a.getClass()</p>
+<p>2 int.class //a为java某类型</p>
+<p>3 Class.forName(a.getClass().getName（）)</p>
+<h3 id="创建一个类的实例"><a href="#创建一个类的实例" class="headerlink" title="创建一个类的实例"></a>创建一个类的实例</h3><p>newInstance调用类的无参构造器</p>
+<p>class.newInstance();</p>
+<h2 id="Field-Method-Constructor"><a href="#Field-Method-Constructor" class="headerlink" title="Field Method Constructor"></a>Field Method Constructor</h2><h3 id="获取私有属性，方法，构造器并修改"><a href="#获取私有属性，方法，构造器并修改" class="headerlink" title="获取私有属性，方法，构造器并修改"></a>获取私有属性，方法，构造器并修改</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//若获取父类资源则使用class.getsuperclass不使用class</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//class为Class类的某实例对象</span></span><br><span class="line"></span><br><span class="line">Field field = class.getDeclareFields(fieldName)</span><br><span class="line"></span><br><span class="line">Method method = class.getDeclareMethod(methodName,...args.class)</span><br><span class="line"></span><br><span class="line">Constructor constructor = class.getDeclareConstructor(...args.class)</span><br><span class="line"></span><br><span class="line"><span class="comment">//避开java检查</span></span><br><span class="line"></span><br><span class="line">field.setAccessible(<span class="keyword">true</span>)</span><br><span class="line">method.setAccessible(<span class="keyword">true</span>)    </span><br><span class="line">constructor.setAccessible(<span class="keyword">true</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//obj为所反射的类的一个实例</span></span><br><span class="line"></span><br><span class="line">field.set(obj,value)</span><br><span class="line"></span><br><span class="line">field.get(obj)</span><br><span class="line"></span><br><span class="line">method.invoke(obj...args)</span><br><span class="line"></span><br><span class="line">obj = constructor.newInstance(...args)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Declare使用与不使用的区别"><a href="#Declare使用与不使用的区别" class="headerlink" title="Declare使用与不使用的区别"></a>Declare使用与不使用的区别</h3><p>~为field,method,constructor中的一个</p>
+<p>getDeclare~获取全部东西，但是不获取父类东西</p>
+<p>get~获取全部public东西，包括在父类的东西</p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>反射</tag>
       </tags>
   </entry>
 </search>
